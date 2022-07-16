@@ -1,13 +1,14 @@
 'use strict'
 
 const allEmployee = [];
-function Employee (EmployeeID, FullName, Department, Level, ImageURL, salary ) {
+function Employee (EmployeeID, FullName, Department, Level, ImageURL, netSalary ) {
     this.EmployeeID = EmployeeID;
     this.FullName = FullName;
     this.Department = Department;
     this.Level = Level;
     this.ImageURL = ImageURL;
     this.salary = this.salary();
+    //this.netSalary = netSalary;
     console.log(this)
     allEmployee.push(this)
   }
@@ -29,7 +30,9 @@ Employee.prototype.netSalary = function () {
     allEmployee.push(this.netsalary);
   }
 Employee.prototype.employeeinfo = function() {
-    document.write(`<p> <br> Full name : ${this.FullName} <br> salary : ${this.salary} JD</p>`)
+document.write(`<p> <br> Full name : ${this.FullName} <br> salary : ${this.salary} JD  </p>`)
+
+//<br> TAX : ${this.netsalary} JD
   }
 
 const Ghazi = new Employee (1000,"Ghazi Samer","Administration","Senior", "")
@@ -42,8 +45,10 @@ const Hadi  = new Employee (1006,"Hadi Ahmad","Finance","Mid-Senior" ,"")
 
 console.log(allEmployee);
 for ( let i = 0 ; i <= allEmployee.length ; i++){
+    if (typeof allEmployee !== "number" ){
+//console.log(i, allEmployee[i]);
 //allEmployee[i].Salary();
 //allEmployee[i].netsalary();
 allEmployee[i].employeeinfo();
+   }
 }
-
